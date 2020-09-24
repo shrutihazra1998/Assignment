@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nested functions</title>
+    <script>
+        var arr = ["Shruti", "Raju", "Rita"];
+        function register() {
+            var name = document.myform.username.value;
+            function validate() {
+                if (name.length == null || name == "" || name.length < 3) {
+                    alert("Name error")
+                    return false;
+                }
+            }
+            function check() {
+                if(name.length >2 ){
+                for (let i in arr) {
+                    if (name == arr[i]) {
+                        alert("Name already exist")
+                        return false
+                    }
+                }
+                alert("welcome user")
+                return true;
+
+            }
+            else{
+                alert("Name cannot be less than 3 letters")
+            }
+        }
+            return check();
+            return validate();
+        }
+        register();
+    </script>
+</head>
+
+<body>
+    <form name="myform" onsubmit=" return register()" method="POST">
+        <label>Enter name</label>
+        <input type="text" name="username" value="">
+        <input type="Submit" name="button" value="register">
+    </form>
+
+</body>
+
+</html>

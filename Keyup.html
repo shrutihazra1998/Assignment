@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #demo{
+                background-color: blue;
+                color:chartreuse;
+                font-size: larger;
+            }
+        </style>
+    </head>
+<body>
+
+
+
+Enter your comment: <input type="text" id="fname" onkeyup="myFunction()">
+
+<p>My comment is: <span id="demo"></span></p>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("fname").value;
+  document.getElementById("demo").innerHTML = x;
+}
+</script>
+
+</body>
+</html>

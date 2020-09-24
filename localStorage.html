@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    function register(){
+
+    var email = document.getElementById('email');
+    var password = document.getElementById('password');
+    var lowerCase = /[a-z]/g;
+    var upperCase = /[A-Z]/g;
+    var numbers = /[0-9]/g;
+
+    if(email.value.length == 0){
+        alert('Please fill in email');
+
+    }else if(password.value.length == 0){
+        alert('Please fill in password');
+
+    }else if(email.value.length == 0 && password.value.length == 0){
+        alert('Please fill in email and password');
+
+    }else if(password.value.length > 8){
+        alert('Maximum 8 characters only');
+
+    }else if(!password.value.match(numbers)){
+        alert('please add a number');
+
+    }else if(!password.value.match(upperCase)){
+        alert('please add a uppercase letter');
+
+    }else if(!password.value.match(lowerCase)){
+        alert('please add a lowercase letter');
+
+    }else{
+        localStorage.setItem('email', email.value);
+        localStorage.setItem('password', password.value);
+        alert('Your have been registered');
+    }
+}
+
+
+function login(){
+    var storedemail = localStorage.getItem('email');
+    var storedpassword = localStorage.getItem('password');
+
+    var useremail = document.getElementById('useremail');
+    var userpassword = document.getElementById('userpassword');
+    var userRemember = document.getElementById("rememberMe");
+
+    if(useremail.value == storedemail && userpassword.value == storedpassword){
+        alert('You are logged in.');
+    }else{
+        alert('Incorrect email or password');
+    }
+}
+
+</script>
+</head>
+<body>
+    <div>
+        <form >
+    
+            <b>Register here</b>
+            <br>
+            <br>
+            
+    
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Username" required>
+    
+            <label for="password">Password</label>
+            <input type="password"
+                   id= "password"
+                   placeholder="Password" required>
+    
+    <br>
+    <br>
+            <input type="submit" value="Register" onclick="register()">
+    
+        </form>
+        <br>
+        <br>
+        <br>
+    </div>
+    
+    <div>
+        <form >
+    
+            <b>Log in</b>
+            <br>
+            <br>
+            
+    
+            <label for="useremail">Email</label>
+            <input type="email" id="useremail" placeholder="Username" required>
+    
+            <label for="userpassword">Password</label>
+            <input type="password" id= "userpassword" placeholder="Password" required>
+            </div>
+    <br>
+    
+            <input type="submit" value="Login" onclick="login()">
+    
+        </form>
+    </div>
+</body>
+</html>

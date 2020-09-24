@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Form Validation</title>
+	<script>
+	function validateForm(){
+	username = document.myform.uname.value;
+	password = document.myform.pass.value;
+	age = document.myform.age.value;
+	if(username ==""||username.length<3){
+		alert("enter valid name");
+		document.myform.uname.focus();
+	}else if (password ==""||password.length<5){
+		alert("enter valid password");
+		document.myform.pass.value="";
+		document.myform.pass.focus();
+	}else if (!password.match(/[1-9]/)){
+		alert("your password must have a number");
+		document.myform.pass.value="";
+		document.myform.pass.focus();
+    }else if (!password.match(/[A-Z]/)){
+		alert("your password must have an uppercase");
+		document.myform.pass.value="";
+		document.myform.pass.focus();
+    }else if (!password.match(/[a-z]/)){
+		alert("your password must have a lowercase");
+		document.myform.pass.value="";
+		document.myform.pass.focus();
+    }
+    else if (!password.match(/[!@#$%^&*]/)){
+		alert("your password must have a special character");
+		document.myform.pass.value="";
+		document.myform.pass.focus();
+        }else if (age ==""||isNaN(age)){
+		alert("enter your age");
+		document.myform.age.value="";
+		document.myform.age.focus();
+	}else if(document.myform.gender[0].checked==""
+			&&document.myform.gender[1].checked==""){
+		alert("enter gender");
+		document.myform.gender[0].focus();
+	}else{
+		alert("You are registered")
+		document.myform.submit();
+	}
+    }	
+
+	</script>
+</head>
+<body>
+<form name="myform">
+    <table class="center" border="1",
+    cellpadding= "10",
+    cellspacing= "10">
+<tr>
+    <td>Name</td>
+    <td> <input type="text" name="uname" id="username" ><br></td>
+</tr>
+<tr>
+    <td>Password</td>
+    <td><input type="password" name="pass" id="password"><br></td>
+</tr>
+<tr>
+    <td>Age</td> 
+    <td> <input type="text" name="age" id="age" ><br></td>
+</tr>
+<tr>
+    <td>Gender</td>
+  <td>Female <input type="radio" name="gender" id="gen1"   value="female"  />
+  Male <input type="radio" name="gender" id="gen2" value="male" /></td>
+</tr>
+<tr>
+<td colspan="2"><center><input type="button" value="Register" onclick="validateForm()"></center></td>
+</tr>
+  
+</form>
+
+</body>
+</html>
